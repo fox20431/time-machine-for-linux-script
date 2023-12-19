@@ -83,8 +83,7 @@ seconds_since_midnight=$((hours * 3600 + minutes * 60 + seconds))
 if sudo rsync -avxHAX --numeric-ids $exclude_options / "$backup_path"; then
   echo "Backup is completed."
   # 创建快照
-  sudo btrfs subvolume snapshot -r $backup_path $(dirname $backup_path)/backup-$current_date-$seconds_since_midnigh
-  echo "Snapshot is created."
+  sudo btrfs subvolume snapshot -r $backup_path $(dirname $backup_path)/backup-snapshot-$current_date-$seconds_since_midnight && echo "Snapshot is created."
 else
   show_error "Backup failed. Please check the error message above."
 fi
