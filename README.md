@@ -1,9 +1,15 @@
+# Linux 时光机器
+
+## 脚本执行
+
 该脚本为自动化备份Linux脚本，`-h`可以查看帮助，用法很简单：
 
 ```sh
 chmod +x backup-linux.sh
 ./backup.sh DESTINATION_PATH
 ```
+
+## 初始化教程
 
 由于该流程基于btrfs文件系统，因此**下列初始化是有必要的**！
 
@@ -18,7 +24,7 @@ sudo btrfs filesystem label /path/to/mounted/btrfs_volume new_label
 sudo btrfs subvolume create /path/to/backup/partition/backup
 ```
 
-此外其他命令：
+### 可能有帮助的命令
 
 ```sh
 # 备份系统
