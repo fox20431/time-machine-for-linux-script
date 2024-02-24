@@ -72,7 +72,7 @@ seconds_since_midnight=$((hours * 3600 + minutes * 60 + seconds))
 # 执行备份命令
 # -v verbose
 # -q quite
-if sudo rsync -aqxHAX --numeric-ids $exclude_options / "$backup_path"; then
+if sudo rsync -aqxHAX --numeric-ids  --delete --checksum $exclude_options / "$backup_path"; then
   echo "Backup is completed."
   # 创建快照
   sudo btrfs subvolume snapshot -r $backup_path $(dirname $backup_path)/backup-snapshot-$current_date-$seconds_since_midnight && echo "Snapshot is created."
